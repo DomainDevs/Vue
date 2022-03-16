@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <title>Titulo W.VueJs</title>
+    <meta charset="UTF-8">
+    <meta name="title" content="Titulo Web">
+    <meta name="description" content="descripcion Web">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://unpkg.com/vue@3"></script>
+    </head>
+    <body>
+    <div id="app">
+        <button type="button" v-on:click="stopInterval">{{btnCaption}} {{ contador }}</button>
+        <label v-bind:title="titulo">hola mundo</label>
+        <hr>
+        <label>Escribe tu nombre: </label>
+        <input type="text" v-model="usuario"/>
+        <h5>Hola {{usuario}}</h5>
+        <hr>
+        <button v-on:click="mostrarImagen('pago.png')">Mostrar IMG</button>
+        <hr>
+        <img v-bind:src="imagen">
+    </div>
+    <script>
+        //data, methods, props, mounted, computed, watch, destroyed
+    const Aplicacion = {
+        data() {
+            return {
+                contador: 0,
+                interval: null,
+                isRunning: false,
+                btnCaption: 'Continuar',
+                titulo: 'Este es un titulo dinamico',
+                imagen: '',
+                usuario: ''
+            }
+        },
+        mounted()
+        {
+            this.interval = setInterval(() => {
+                this.contador++;
+            }, 1000);
+            this.isRunning = true;
+            this.btnCaption = 'Detener';
+        },
+        methods: {
+            stopInterval(){
+                console.log('Hola');
+                if(this.isRunning){
+                    clearInterval(this.interval);
+                    this.isRunning = false;
+                    this.btnCaption = 'Continuar';
+                }else{
+                    this.interval = setInterval(() => {
+                        this.contador++;
+                    }, 1000);
+                    this.isRunning = true;
+                    this.btnCaption = 'Detener';
+                }
+                
+            },
+            mostrarImagen(imagen){
+                this.imagen = imagen;
+            }
+        }
+    }
+
+    var MountApp = Vue.createApp(Aplicacion).mount('#app')
+    
+    </script>
+    </body>
+</html>

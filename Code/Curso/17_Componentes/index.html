@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <title>Titulo W.VueJs</title>
+    <meta charset="UTF-8">
+    <meta name="title" content="Titulo Web">
+    <meta name="description" content="descripcion Web">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://unpkg.com/vue@3"></script>
+    </head>
+    <body>
+    <div id="app">
+        <hello-wordl v-for="i in totalComponentes"></hello-wordl>
+    </div>
+    <script>
+        const App = {
+            data() {
+                return {
+                    totalComponentes: 5
+                    //meses: ['Enero','Febrero']
+                }
+            }
+        }
+        
+        var _app = Vue.createApp(App);
+        _app.component('hello-wordl', {
+            template: `<h5>Hola</h5>`,
+            data(){
+                nombre: 'Jose'
+            }
+        })
+
+        var Appmount = _app.mount('#app')
+    </script>
+    </body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="checkbox" id="checkbox" v-model="checked">
+        <label for="checkbox">Aqui resultado: {{ checked }}</label>
+        <hr/>
+        <ul>
+            <li v-for="fruta in frutas" v-bind:key="">
+                {{fruta}}</li>
+        </ul>
+        <hr/>
+        <ul>
+            <li v-for="(fruta, index) in frutas_key" v-bind:key="fruta">
+                <input type="checkbox" v-model="fruta.activo">
+                indice: {{index}}) {{fruta.id}} - {{fruta.nombre}}
+                <span>Selecionado: {{fruta.activo}}</span>
+            </li>
+        </ul>
+        <hr/>
+        <ul>
+            <li v-for="fruta in frutas_key" v-bind:key="fruta">
+                <input type="checkbox" v-model="fruta.activo">
+                {{fruta.id}} - {{fruta.nombre}}
+                <span>Selecionado: {{fruta.activo}}</span>
+            </li>
+        </ul>
+        <hr/>
+        <select v-model="frutaId">
+            <option v-for="fruta in frutas_key" v-bind:value="fruta.id">
+                {{fruta.nombre}}</option>
+        </select>
+        Selecionado: {{frutaId}}
+    </div>
+    <script>
+    const Components = {
+        data() {
+            return {
+                checked: false,
+                frutas: ['Naranja', 'Pera', 'Fresa'],
+                frutaId:2,
+                frutas_key: [
+                    {id:1, nombre:'Manzana', activo:true},
+                    {id:2, nombre:'Naranja', activo:false},
+                    {id:3, nombre:'Pera', activo:true},
+                    {id:4, nombre:'Durazno', activo:false}
+                ]
+            }
+        }
+    }    
+    var MountApp = Vue.createApp(Components).mount('#app')
+    </script>
+</body>
+</html>

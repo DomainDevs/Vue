@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <title>Titulo W.VueJs</title>
+    <meta charset="UTF-8">
+    <meta name="title" content="Titulo Web">
+    <meta name="description" content="descripcion Web">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://unpkg.com/vue@3"></script>
+    </head>
+    <body>
+    <div id="app">
+    <input type="text" :disabled="(valor >= 5)">
+        <form method="POST">
+        <input type="checkbox" :checked="chkChecked" :required="Obligatorio">
+        <button type="submit">Enviar</button>
+        </form>
+
+        <select>
+            <option v-for="opcion in Opciones" 
+                v-bind:value="opcion.id" :selected="opcion.selected">
+                {{opcion.id}} - {{opcion.nombre}}
+            </option>
+        </select>
+    </div>
+    <script>
+        const App = {
+            data() {
+                return {
+                    txtDisabled: false, //deshabilitado
+                    valor: 5,
+                    chkChecked: true, //marcado
+                    Obligatorio: true, //requerido
+                    Opciones: [
+                        {
+                            id: 1,
+                            nombre: 'Colombia',
+                            selected: false
+                        },
+                        {
+                            id: 2,
+                            nombre: 'Argentina',
+                            selected: false
+                        },
+                        {
+                            id: 2,
+                            nombre: 'Cuba',
+                            selected: true
+                        }
+                    ]
+                }
+            }
+        }
+        var AppMount = Vue.createApp(App).mount('#app')
+    </script>
+    </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <title>Titulo W.VueJs</title>
+    <meta charset="UTF-8">
+    <meta name="title" content="Titulo Web">
+    <meta name="description" content="descripcion Web">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://unpkg.com/vue@3"></script>
+    </head>
+    <body>
+    <div id="app">
+    Conteo {{ contador }}
+    </div>
+    <script>
+    const Contador = {
+        data() {
+            return {
+                contador: 0
+            }
+        },
+    mounted()
+        {
+            setInterval(() => {
+                this.contador++;
+            }, 1000);
+        }
+    }
+    var AppMount = Vue.createApp(Contador).mount('#app')
+    </script>
+    </body>
+</html>

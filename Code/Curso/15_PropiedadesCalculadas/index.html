@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <title>Titulo W.VueJs</title>
+    <meta charset="UTF-8">
+    <meta name="title" content="Titulo Web">
+    <meta name="description" content="descripcion Web">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    
+
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://unpkg.com/vue@3"></script>
+    </head>
+    <body>
+    <div id="app">
+        <div class="container" style="Padding:50px; margin:50px">
+            <div>{{ $data }}</div>
+
+            <input type="text" v-model="n1">
+            <input type="text" v-model="n2">
+            <h5>La suma es {{resultado}}</h5>
+
+
+            <hr>
+            <h4>Escriba una fruta</h4>
+            <input type="text" v-model="fruta">
+            <button type="button" @click="agregarFruta">Agregar fruta</button>
+            <label>Ha agregado un total de {{total_frutas}} frutas</label>
+            <br>
+            <ul>
+                <li v-for="fruta in frutas">{{fruta}}</li>
+            </ul>
+
+        </div>
+    </div>
+    <script>
+        const App = {
+            data() {
+                return {
+                    n1: 0,
+                    n2: 0,
+                    fruta:'',
+                    frutas:[]
+                }
+            },
+            methods:{
+                agregarFruta()
+                {
+                    this.frutas.push(this.fruta);
+                    this.fruta = '';
+                }
+            },
+            computed:{
+                resultado:function()
+                {
+                    return parseFloat(this.n1) + parseFloat(this.n2);
+                },
+                total_frutas: function()
+                {
+                    return this.frutas.length;
+                }
+            }
+        }
+        Vue.createApp(App).mount('#app')
+    </script>
+    </body>
+</html>

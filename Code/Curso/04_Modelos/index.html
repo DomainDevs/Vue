@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3"></script>
+</head>
+<body>
+    <div id="app">
+        <select v-model="fruta">
+            <option value="Manzana">Manzana</option>
+            <option value="Pera">Pera</option>
+            <option value="Naranja">Naranja</option>
+        </select>
+        <span>Fruta selecionada {{fruta}}</span>
+        <hr/>
+        <input type="checkbox" v-model="activo"/>
+        <span>Selecionado: {{activo}}</span>
+    </div>
+    <script>
+    const Components = {
+        data() {
+            return {
+                nombre: '',
+                fruta: 'Naranja',
+                activo: false
+            }
+        }
+    }    
+    var MountApp = Vue.createApp(Components).mount('#app')
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <title>Titulo W.VueJs</title>
+    <meta charset="UTF-8">
+    <meta name="title" content="Titulo Web">
+    <meta name="description" content="descripcion Web">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://unpkg.com/vue@3"></script>
+    </head>
+    <body>
+    <div id="app">
+        <img src="pago.png" height="200" v-if="mostrarImagen">
+        <img src="pago.png" height="300" v-show="mostrarImagen">
+    </div>
+    <script>
+        //v-if/v-show (v-if borra por completo, v-show solo pone en hidden)
+        const app = {
+            data() {
+                return {
+                    mostrarImagen: false,
+                    esAdministrador: false
+                }
+            }
+        }
+        var AppMount = Vue.createApp(app).mount('#app')
+    </script>
+    </body>
+</html>

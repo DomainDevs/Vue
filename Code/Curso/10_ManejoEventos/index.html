@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <title>Titulo W.VueJs</title>
+    <meta charset="UTF-8">
+    <meta name="title" content="Titulo Web">
+    <meta name="description" content="descripcion Web">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://unpkg.com/vue@3"></script>
+    </head>
+    <body>
+    <div id="app">
+        <button class="btn indigo darken-4" 
+        @click="(contador++)">Haz click</button>
+        {{contador}}
+        <hr>
+        <button class="btn indigo darken-4" 
+        @mouseout="(estado = false)" 
+        @mouseover="(estado = true)">Pasa el punteo</button>
+        Estado mouse: {{estado}}
+        <img src="pago.png" v-show="estado">
+
+        <select v-on:change="cambiarImagen($event)" 
+        class="browser-default">
+            <option value="pago.png">Imagen 1</option>
+            <option value="pago.png">Imagen 2</option>
+        </select>
+    </div>
+    <script>
+        //kedown, load, mouseout, mouseover
+        const app = {
+            data() {
+                return {
+                    contador: 0,
+                    estado: false,
+                    imagen: ''
+                }
+            },
+            methods:{
+                cambiarImagen(event){
+                    console.log(event.target.value);
+                }
+            }
+        }
+        var AppMount = Vue.createApp(app).mount('#app')
+    </script>
+    </body>
+</html>

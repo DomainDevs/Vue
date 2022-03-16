@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3"></script>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="fruta in frutas_key" v-bind:key="fruta">
+                <input type="checkbox" v-model="fruta.activo">
+                {{fruta.id}} - {{fruta.nombre}}
+                <label for="checkbox">Aqui resultado: {{ fruta.activo }}</label>
+                <ul>
+                    <li v-for="pais in fruta.paises">
+                        <input type="checkbox" v-model="pais.activo">
+                        pais: {{pais.id}} - {{pais.nombre}}
+                        <label for="checkbox">Aqui resultado: {{ pais.activo }}</label>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <ul>
+            <li v-for="l in letras">{{l}}</li>
+        </ul>
+        <ul>
+            <li v-for="n in 100">{{n}}-{{n/2}}</li>
+        </ul>
+        <hr/>
+    </div>
+    <script>
+    const Components = {
+        data() {
+            return {
+                letras: 'abcde',
+                checked: false,
+                frutas: ['Naranja', 'Pera', 'Fresa'],
+                frutaId:2,
+                frutas_key: [
+                    {
+                        id:1, 
+                        nombre:'Manzana', 
+                        activo:true,
+                        paises:[
+                            {id:1, nombre:"Colombia", activo:true},
+                            {id:2, nombre:"Ecuador", activo:false},
+                            {id:3, nombre:"Peru", activo:true}
+                        ]
+                    },
+                    {
+                        id:2,
+                        nombre:'Naranja',
+                        activo:false,
+                        paises:[
+                            {id:4, nombre:"Argentina", activo:true},
+                            {id:5, nombre:"Venezuela", activo:false}
+                        ]
+                    },
+                    {
+                        id:3,
+                        nombre:'Pera',
+                        activo:true,
+                        paises:null
+                    },
+                    {
+                        id:4,
+                        nombre:'Durazno',
+                        activo:false,
+                        paises:null
+                    }
+                ]
+            }
+        }
+    }    
+    var MountApp = Vue.createApp(Components).mount('#app')
+    </script>
+</body>
+</html>

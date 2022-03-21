@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <title>Titulo W.VueJs</title>
+    <meta charset="UTF-8">
+    <meta name="title" content="Titulo Web">
+    <meta name="description" content="descripcion Web">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://unpkg.com/vue@3"></script>
+    </head>
+    <body>
+    <div id="app">
+        <menu-component></menu-component>
+        <div class="container">
+            <div class="row">
+                <div class="col m6">
+                    <label>Usuario:</label>
+                    <input type="text" v-model="usuario">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col m6">
+                    <label>Correo:</label>
+                    <input type="text" v-model="correo">
+                </div>
+            </div>
+            <div class="row">
+                <button type="button" class="btn indigo darken-4">Registrarse</button>
+            </div>
+        </div>
+    </div>
+    <script src="main.js"></script>
+    <script src="menu.component.js"></script>
+    <script>
+        const appMount = _app.mount('#app')
+    </script>
+    </body>
+</html>

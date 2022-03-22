@@ -9,7 +9,9 @@ _app.component(`menu-component`, {
       </ul>
     </div>
   </nav>
-  <input type="text" v-model="miusuario">`,
+  <input type="text" v-model="miusuario">
+  <button type="button" @click="saludarDesdeHijo('Hola')">Haz click</button>
+  `,
   props:{
     usuario: String
   },
@@ -17,7 +19,13 @@ _app.component(`menu-component`, {
     return {
       miusuario: this.usuario
     }
+  },
+  methods:{
+    saludarDesdeHijo(nombre)
+    {
+      console.log('Hola '+nombre);
+    }
   }
 });
 
-///Las props no se pueden modificar, pero si las data. Por eso se crea la variabel miusuario
+//Como crear una referencia del padre al hijo, para poder llamar las funciones del componente

@@ -8,8 +8,24 @@ _app.component(`menu-component`, {
         <li><a href="collapsible.html">{{usuario}}</a></li>
       </ul>
     </div>
-  </nav>`,
+  </nav>
+  <input type="text" v-model="miusuario">
+  <button type="button" @click="saludarDesdeHijo">Haz click</button>
+  `,
   props:{
     usuario: String
+  },
+  data(){
+    return {
+      miusuario: this.usuario
+    }
+  },
+  methods:{
+    saludarDesdeHijo()
+    {
+      console.log('Hola mundo desde componente hijo');
+    }
   }
 });
+
+//Como crear una referencia del padre al hijo, para poder llamar las funciones del componente

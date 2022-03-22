@@ -17,7 +17,7 @@
     </head>
     <body>
     <div id="app">
-        <menu-component></menu-component>
+        <menu-component v-bind:usuario="usuario"></menu-component>
         <div class="container">
             <div class="row">
                 <div class="col m6">
@@ -29,6 +29,12 @@
                 <div class="col m6">
                     <label>Correo:</label>
                     <input type="text" v-model="correo">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col m6">
+                    <label>Clave:</label>
+                    <input type="password" v-model="clave">
                 </div>
             </div>
             <div class="row">

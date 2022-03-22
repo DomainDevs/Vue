@@ -1,7 +1,7 @@
 const app = {
     data(){
         return {
-            usuario: '',
+            usuario: 'code',
             correo: '',
             clave: ''
         }

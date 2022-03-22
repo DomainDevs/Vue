@@ -28,4 +28,6 @@ _app.component(`menu-component`, {
   }
 });
 
-//Como crear una referencia del padre al hijo, para poder llamar las funciones del componente
+//Como crear una referencia del padre al hijo, para poder llamar las funciones del componente desde el padre
+//Se crea un metodo (saludarDesdeHijo) para que se vea mas ordenado
+//Pero iguals e podía hacer así: <button type="button" class="btn indigo darken-4" @click="llamarSaludoDesdeHijo">Llamar saludo</button>

@@ -43,6 +43,9 @@
             <div class="row">
                 <button type="button" class="btn indigo darken-4" @click="llamarSaludoDesdeHijo">Llamar saludo</button>
             </div>
+            <div class="row">
+                <button type="button" class="btn indigo darken-4" @click="this.$refs.menuComponent.saludarDesdeHijo(this.nombre)">Llamar saludo</button>
+            </div>
         </div>
     </div>
     <script src="main.js"></script>

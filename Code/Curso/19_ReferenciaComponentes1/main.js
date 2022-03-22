@@ -11,6 +11,7 @@ const app = {
         llamarSaludoDesdeHijo()
         {
             this.$refs.menuComponent.saludarDesdeHijo(this.nombre);
+            this.$refs.menuComponent.miusuario = this.nombre; //Cambiar propiedad
         }
     }
     
